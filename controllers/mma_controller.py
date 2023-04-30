@@ -1,5 +1,6 @@
 import numpy as np
 from .controller import Controller
+from models.manipulator_model import ManiuplatorModel
 
 
 class MMAController(Controller):
@@ -8,7 +9,10 @@ class MMAController(Controller):
         # I:   m3=0.1,  r3=0.05
         # II:  m3=0.01, r3=0.01
         # III: m3=1.0,  r3=0.3
-        self.models = [None, None, None]
+        self.model1 = ManiuplatorModel(Tp, 0.05, 0.1)
+        self.model2 = ManiuplatorModel(Tp, 0.01, 0.01)
+        self.model3 = ManiuplatorModel(Tp, 0.3, 1.0)
+        self.models = [self.model1, self.model2, self.model3]
         self.i = 0
 
     def choose_model(self, x):
@@ -19,7 +23,7 @@ class MMAController(Controller):
         self.choose_model(x)
         q = x[:2]
         q_dot = x[2:]
-        v = q_r_ddot # TODO: add feedback
+        v = q_r_ddot  # TODO: add feedback
         M = self.models[self.i].M(x)
         C = self.models[self.i].C(x)
         u = M @ v[:, np.newaxis] + C @ q_dot[:, np.newaxis]

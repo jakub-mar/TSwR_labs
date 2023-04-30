@@ -12,12 +12,12 @@ from utils.simulation import simulate
 
 Tp = 0.01
 start = 0
-end = 5
+end = 3
 
 """
 Switch to FeedbackLinearizationController as soon as you implement it
 """
-controller = FeedbackLinearizationController(Tp)
+controller = FeedbackLinearizationController(Tp, 20, 10)
 # controller = DummyController(Tp)
 
 """
