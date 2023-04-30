@@ -35,13 +35,15 @@ class ManiuplatorModel:
         """
         q1, q2, q1_dot, q2_dot = x
 
-        Matrix = [
+        Matrix = np.array(
             [
-                self.alpha + 2 * self.beta * np.cos(q2),
-                self.gamma + self.beta * np.cos(q2),
-            ],
-            [self.gamma + self.beta * np.cos(q2), self.gamma],
-        ]
+                [
+                    self.alpha + 2 * self.beta * np.cos(q2),
+                    self.gamma + self.beta * np.cos(q2),
+                ],
+                [self.gamma + self.beta * np.cos(q2), self.gamma],
+            ]
+        )
         return Matrix
 
     def C(self, x):
@@ -51,11 +53,13 @@ class ManiuplatorModel:
         """
         q1, q2, q1_dot, q2_dot = x
 
-        Matrix = [
+        Matrix = np.array(
             [
-                -self.beta * np.sin(q2) * q2_dot,
-                -self.beta * np.sin(q2) * (q1_dot + q2_dot),
-            ],
-            [self.beta * np.sin(q2) * q1_dot, 0],
-        ]
+                [
+                    -self.beta * np.sin(q2) * q2_dot,
+                    -self.beta * np.sin(q2) * (q1_dot + q2_dot),
+                ],
+                [self.beta * np.sin(q2) * q1_dot, 0],
+            ]
+        )
         return Matrix

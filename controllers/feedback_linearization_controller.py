@@ -14,8 +14,13 @@ class FeedbackLinearizationController(Controller):
         """
         q1, q2, q1_dot, q2_dot = x
 
-        Kd = 1.0
-        Kp = 1.0
-        v = q_r_ddot + Kd * ([q1_dot, q2_dot] - q_r_dot) + Kp * ([q1, q2] - q_r)
-        tau = self.model.M(x) @ v + self.model.C(x) @ [q1_dot, q2_dot]
+        q = x[:2]
+        q_dot = x[2:4]
+        # Kd = np.array([0.25, 0.25])
+        # Kp = np.array([0.25, 0.25])
+        Kd = 2.0
+        Kp = 10.0
+
+        v = q_r_ddot + Kd * (q_r_dot - q_dot) + Kp * (q_r - q)
+        tau = self.model.M(x) @ v + self.model.C(x) @ q_dot
         return tau
