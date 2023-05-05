@@ -17,6 +17,8 @@ class MMAController(Controller):
 
     def choose_model(self, x):
         # TODO: Implement procedure of choosing the best fitting model from self.models (by setting self.i)
+        for model in self.models:
+            model
         pass
 
     def calculate_control(self, x, q_r, q_r_dot, q_r_ddot):
