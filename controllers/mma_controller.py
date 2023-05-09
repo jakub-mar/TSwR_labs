@@ -32,8 +32,8 @@ class MMAController(Controller):
             if error < lastError:
                 lastError = error
                 self.i = index
+
         print("############################", self.i)
-        # pass
 
     def calculate_control(self, x, q_r, q_r_dot, q_r_ddot):
         self.choose_model(x)

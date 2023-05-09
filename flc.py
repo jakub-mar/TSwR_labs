@@ -12,7 +12,7 @@ from utils.simulation import simulate
 
 Tp = 0.01
 start = 0
-end = 5
+end = 15
 
 """
 Switch to FeedbackLinearizationController as soon as you implement it
