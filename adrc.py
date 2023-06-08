@@ -28,7 +28,6 @@ p2 = 100
 
 q0, qdot0, _ = traj_gen.generate(0.0)
 q1_0 = np.array([q0[0], qdot0[0]])
-print("q1_0: ", q1_0)
 q2_0 = np.array([q0[1], qdot0[1]])
 controller = ADRController(
     Tp,
