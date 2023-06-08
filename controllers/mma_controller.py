@@ -12,8 +12,8 @@ class MMAController(Controller):
         self.models = [self.model1, self.model2, self.model3]
         self.i = 0
         self.u = np.array([[0], [0]])
-        self.Kp = np.array([[10, 0], [0, 10]])
-        self.Kd = np.array([[15, 0], [0, 15]])
+        self.Kp = np.array([[15, 0], [0, 15]])
+        self.Kd = np.array([[20, 0], [0, 40]])
 
     def choose_model(self, x):
         lastError = np.inf
