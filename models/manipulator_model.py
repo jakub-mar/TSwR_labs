@@ -36,7 +36,8 @@ class ManiuplatorModel:
         Please implement the calculation of the mass matrix, according to the model derived in the exercise
         (2DoF planar manipulator with the object at the tip)
         """
-        q1, q2, q1_dot, q2_dot = x
+        q2 = x
+        # q1, q2, q1_dot, q2_dot = x
 
         Matrix = np.array(
             [

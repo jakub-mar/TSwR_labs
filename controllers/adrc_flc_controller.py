@@ -1,10 +1,9 @@
 import numpy as np
 
-from models.free_model import FreeModel
 from observers.eso import ESO
 from .adrc_joint_controller import ADRCJointController
 from .controller import Controller
-from models.ideal_model import IdealModel
+from models.manipulator_model import ManiuplatorModel
 
 
 class ADRFLController(Controller):
