@@ -31,7 +31,7 @@ class ADRCJointController(Controller):
         u = (v - f) / self.b
 
         self.eso.update(q, u)
-        M = self.model.M(x_h)
+        M = self.model.M(np.concatenate([[x_h], [0.0, 0.0, 0.0]], axis=0))
         self.set_b(np.linalg.inv(M)[i, i])
 
         return u

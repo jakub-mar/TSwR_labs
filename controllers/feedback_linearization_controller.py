@@ -13,14 +13,14 @@ class FeedbackLinearizationController(Controller):
         robot state x and desired control v.
         """
 
-        Kd = np.array([[3.0, 0], [0, 3.0]])
-        Kp = np.array([[8.0, 0], [0, 8.0]])
+        Kd = np.array([[14, 0], [0, 14]])
+        Kp = np.array([[22, 0], [0, 22]])
 
         q1, q2, q1_dot, q2_dot = x
 
         q = x[:2]
         q_dot = x[2:4]
 
-        v = q_r_ddot + Kd @ (q_dot - q_r_dot) + Kp @ (q - q_r)
+        v = q_r_ddot + Kd @ (q_r_dot - q_dot) + Kp @ (q_r - q)
         tau = self.model.M(x) @ v + self.model.C(x) @ q_dot
         return tau

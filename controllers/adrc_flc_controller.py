@@ -32,7 +32,7 @@ class ADRFLController(Controller):
         self.update_params(q0[:2], q0[2:])
 
     def update_params(self, q, q_dot):
-        x = np.array([q, q_dot])
+        x = np.concatenate([q, q_dot], axis=0)
         M = self.model.M(x)
         M_inv = np.linalg.inv(M)
         C = self.model.C(x)
