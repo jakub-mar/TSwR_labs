@@ -16,7 +16,7 @@ from utils.simulation import simulate
 """http://www.gipsa-lab.fr/~ioandore.landau/adaptivecontrol/Transparents/Courses/AdaptiveCourse5GRK.pdf"""
 
 Tp = 0.01
-end = 20.0
+end = 15.0
 
 
 # TODO: Switch to MMAC as soon as you implement it
